@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #050a14;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --accent-gold: #c5a059;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glow-color: rgba(197, 160, 89, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(50, 100, 200, 0.05) 0%, transparent 50%);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-gold);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.logo-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 0 10px var(--accent-gold));
+}
+
+header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    animation: glitch 3s infinite linear alternate-reverse;
+}
+
+header p {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.diary-section {
+    position: relative;
+}
+
+.confession-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out both;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Subtle dirty texture */
+}
+
+.confession-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--glow-color);
+    border-color: rgba(197, 160, 89, 0.3);
+}
+
+.confession-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gold);
+    opacity: 0.6;
+}
+
+.confession-card .marker {
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.8;
+}
+
+.confession-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.confession-card p {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.confession-card blockquote {
+    border-left: 2px solid var(--accent-gold);
+    padding-left: 1.5rem;
+    font-style: italic;
+    margin: 2rem 0;
+    color: var(--text-secondary);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 6rem;
+    padding-bottom: 4rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.btn-secret {
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 1rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.btn-secret:hover {
+    background: var(--accent-gold);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-5 {
+    animation-delay: 0.5s;
+}
+
+.stagger-6 {
+    animation-delay: 0.6s;
+}
+
+.stagger-7 {
+    animation-delay: 0.7s;
+}
+
+.stagger-8 {
+    animation-delay: 0.8s;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); text-shadow: -2px 0 var(--accent-gold), 2px 0 #5cd1ff; }
+    2% { transform: translate(-2px, 2px); }
+    4% { transform: translate(-2px, -2px); }
+    6% { transform: translate(2px, 2px); }
+    8% { transform: translate(2px, -2px); }
+    10% { transform: translate(0); }
+    100% { transform: translate(0); }
+}
+
+.confession-card h2 {
+    animation: glitch 5s infinite linear alternate;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .confession-card {
+        padding: 2rem;
+    }
+
+    .confession-card h2 {
+        font-size: 1.8rem;
+    }
+}
